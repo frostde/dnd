@@ -1,3 +1,9 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
+import { classes } from '../reducers/classes'
 
-const store = createStore()
+export const makeStore = (initialState, options) => {
+    return createStore(combineReducers({
+        classes
+    }), applyMiddleware(thunk));
+};
