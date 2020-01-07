@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import { connect } from "react-redux";
 
 import { getClasses } from '../actions/classes'
 
-const Home = ({ dispatch, classes }) => {
+export const Home = ({ classes, getClasses }) => {
 
-    useEffect(() => {
-        dispatch(getClasses())
+    React.useEffect(() => {
+        getClasses()
     }, [])
-    console.log(classes)
+
     return (
         <div>
             <Head>
@@ -19,7 +19,7 @@ const Home = ({ dispatch, classes }) => {
             <div>
             {
                 classes.map((element, i) => {
-                    <div key={i}>{element.name}</div>
+                    return (<div class="test" key={i}>{element.name}</div>)
                 })
             }
             </div>
@@ -28,11 +28,18 @@ const Home = ({ dispatch, classes }) => {
 
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getClasses: () => {
+            dispatch(getClasses())
+        }
+    }
+}
+
 const mapStateToProps = (state, props) => {
-    console.log(state)
     return {
         classes: state.classes.list
     }
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
