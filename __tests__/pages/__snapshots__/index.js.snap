@@ -1,7 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<div>
-  <div />
-</div>
+exports[`component renders correctly 1`] = `
+"<div>
+  <Head>
+    <title>
+      Home
+    </title>
+    <link rel=\\"icon\\" href=\\"/favicon.ico\\" />
+  </Head>
+  <div>
+    <div class=\\"test\\">
+      Barbarian
+    </div>
+    <div class=\\"test\\">
+      Wizard
+    </div>
+  </div>
+</div>"
 `;
