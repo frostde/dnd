@@ -15,5 +15,8 @@ export const getClasses = () => {
             let { results } = result.data
             dispatch(setClasses(results))
         })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }

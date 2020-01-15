@@ -2,6 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  Welcome to this really cool DND app!!
+  <div />
 </div>
 `;

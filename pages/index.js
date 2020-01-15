@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 
 import { getClasses } from '../actions/classes'
 
-const Home = ({ dispatch, classes }) => {
+export const Home = ({ dispatch, classes }) => {
 
     useEffect(() => {
         dispatch(getClasses())
     }, [])
-    console.log(classes)
+
     return (
         <div>
             <Head>
@@ -19,7 +19,7 @@ const Home = ({ dispatch, classes }) => {
             <div>
             {
                 classes.map((element, i) => {
-                    <div key={i}>{element.name}</div>
+                    return (<div key={i}>{element.name}</div>)
                 })
             }
             </div>
@@ -29,7 +29,6 @@ const Home = ({ dispatch, classes }) => {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log(state)
     return {
         classes: state.classes.list
     }
